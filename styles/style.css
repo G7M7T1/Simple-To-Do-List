@@ -6,6 +6,10 @@
           box-sizing: border-box;
 }
 
+i {
+  pointer-events: none;
+}
+
 body {
   background: -webkit-gradient(linear, left top, right top, from(#5482ff), to(#64ff86));
   background: linear-gradient(90deg, #5482ff, #64ff86);
@@ -94,13 +98,15 @@ section div.todo {
       -ms-flex-align: center;
           align-items: center;
   margin: 0.2rem 0rem;
+  -webkit-transition: all 0.1s ease;
+  transition: all 0.1s ease;
 }
 
 section div.todo p {
   background-color: white;
   color: black;
   padding: 0.25rem 0.5rem;
-  font: size 1.75em;
+  font-size: 1.75rem;
 }
 
 section div.todo p.todo-text {
@@ -110,5 +116,63 @@ section div.todo p.todo-text {
 section div.todo p.todo-time {
   width: 20%;
   text-align: center;
+}
+
+section div.todo button {
+  padding: 0.25rem 0.5rem;
+  font-size: 2rem;
+  border: none;
+  cursor: pointer;
+  color: white;
+}
+
+section div.todo button.complete {
+  background-color: #25cf25;
+}
+
+section div.todo button.trash {
+  background-color: red;
+}
+
+.done {
+  opacity: 0.5;
+  text-decoration: line-through;
+  text-decoration-thickness: 0.2rem;
+}
+
+@-webkit-keyframes scaleUp {
+  from {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+  }
+  to {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+
+@keyframes scaleUp {
+  from {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+  }
+  to {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+
+@-webkit-keyframes scaleDown {
+  to {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+  }
+}
+
+@keyframes scaleDown {
+  to {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+  }
 }
 /*# sourceMappingURL=style.css.map */
