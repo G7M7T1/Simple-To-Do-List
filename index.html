@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="G7M7T1">
+    <meta name="description" content="To Do List">
+    <meta name="robots" content="index,follow">
+    <title>To Do List</title>
+    <link rel="shortcut icon" href="./pic/logo.svg">
+    <link rel="bookmark" href="./pic/logo.svg">
+    <link rel="stylesheet" href="./styles/style.css">
+</head>
+<body>
+
+    <header>
+        <h1>To do List</h1>
+    </header>
+
+    <form>
+        <input type="text" placeholder="What you need to do" required>
+        <input type="number" max="12" min="1" placeholder="M" required>
+        <input type="number" max="1" min="31" placeholder="D" required>
+        <button type="submit">Add into List</button>
+    </form>
+
+    <div class="sort">
+        <button>Sort By Time</button>
+    </div>
+
+    <section></section>
+</body>
+<script src="./app.js"></script>
+</html>
