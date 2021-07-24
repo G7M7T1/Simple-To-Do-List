@@ -47,6 +47,14 @@ add.addEventListener("click", e => {
         todoItem.style.animation = "scaleDown 0.3s forwards";
         todoItem.addEventListener("animationend", () => {
             todoItem.remove()
+            let text = todoItem.children[0].innerText;
+            let myListArray = JSON.parse(localStorage.getItem("list"));
+            myListArray.forEach((item, index) => {
+                if(item.doText == text) {
+                    myListArray.splice(index,1);
+                    localStorage.setItem("list", JSON.stringify(myListArray));
+                }
+            })
         })
     })
 
@@ -119,6 +127,15 @@ if(myList !== null) {
             todoItem.style.animation = "scaleDown 0.3s forwards";
             todoItem.addEventListener("animationend", () => {
                 todoItem.remove()
+                // remove from local storage
+                let text = todoItem.children[0].innerText;
+                let myListArray = JSON.parse(localStorage.getItem("list"));
+                myListArray.forEach((item, index) => {
+                    if(item.doText == text) {
+                        myListArray.splice(index,1);
+                        localStorage.setItem("list", JSON.stringify(myListArray));
+                    }
+                })
             })
         })
         addTodo.appendChild(completeButton); addTodo.appendChild(trashButton);

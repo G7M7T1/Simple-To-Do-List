@@ -102,6 +102,21 @@ section {
   }
 }
 
+div.sort {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem 0rem;
+  button{
+    cursor: pointer;
+    background-color: rgb(65, 120, 236);
+    color: white;
+    border: none;
+    padding: 0.25rem 0.5rem;
+    font-size: 1.75rem;
+}
+}
+
 .done {
   opacity: 0.5;
   text-decoration: line-through;

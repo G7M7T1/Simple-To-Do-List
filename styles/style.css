@@ -134,6 +134,28 @@ section div.todo button.trash {
   background-color: red;
 }
 
+div.sort {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 1rem 0rem;
+}
+
+div.sort button {
+  cursor: pointer;
+  background-color: #4178ec;
+  color: white;
+  border: none;
+  padding: 0.25rem 0.5rem;
+  font-size: 1.75rem;
+}
+
 .done {
   opacity: 0.5;
   text-decoration: line-through;
