@@ -58,9 +58,70 @@ add.addEventListener("click", e => {
     // animation scaleUp here
     addTodo.style.animation = "scaleUp 0.5s forwards";
 
+    // create an object
+    let myTodo = {
+        doText: todoText,
+        doMonth: todoMonth,
+        doDate: todoDate
+    };
+
+    // store data into an array of object
+    let myList = localStorage.getItem("list")
+    if (myList == null) {
+        localStorage.setItem("list", JSON.stringify([myTodo]))
+    } else {
+        let myListArray = JSON.parse(myList);
+        myListArray.push(myTodo);
+        localStorage.setItem("list", JSON.stringify(myListArray));
+    }
+
     // clear input
     form.children[0].value = ""; form.children[1].value = ""; form.children[2].value = "";
 
     // add addTodo to section
     section.appendChild(addTodo);
 })
+
+let myList = localStorage.getItem("list");
+if(myList !== null) {
+    let myListArray = JSON.parse(myList);
+    myListArray.forEach(item => {
+
+        // create a todo
+        let addTodo = document.createElement("div");
+        addTodo.classList.add("todo");
+
+        let text = document.createElement("p");
+        text.classList.add("todo-text");
+        text.innerText = item.doText;
+        
+        let time = document.createElement("p");
+        time.classList.add("todo-time");
+        time.innerText = item.doMonth + " / " + item.doDate;
+
+        addTodo.appendChild(text); addTodo.appendChild(time);
+
+        let completeButton = document.createElement("button");
+        completeButton.classList.add("complete");
+        completeButton.innerHTML = '<i class="fas fa-check"></i>';
+        completeButton.addEventListener("click", event => {
+            let todoItem = event.target.parentElement;
+            todoItem.classList.toggle("done");
+        })
+    
+        // create red trash canvas
+        let trashButton = document.createElement("button");
+        trashButton.classList.add("trash");
+        trashButton.innerHTML = '<i class="fas fa-trash"></i>';
+        // add Event Listener
+        trashButton.addEventListener("click", event => {
+            let todoItem = event.target.parentElement;
+            todoItem.style.animation = "scaleDown 0.3s forwards";
+            todoItem.addEventListener("animationend", () => {
+                todoItem.remove()
+            })
+        })
+        addTodo.appendChild(completeButton); addTodo.appendChild(trashButton);
+        section.appendChild(addTodo);
+    })
+}
